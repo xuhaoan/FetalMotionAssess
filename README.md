@@ -10,17 +10,17 @@ CP-based motion assessment (MA) is used for quantitative evaluation of motion in
 * improving the quality and overall success rate of fetal brain super-resolution reconstruction.
 
 <p align="center">
-   <img src="./doc/illustration.png" align="center" width="700">
+   <img src="./Doc/illustration.png" align="center" width="700">
 </p>
 <p align="center">Figure 1. Illustration of motion assessment. <p align="center">
 
-## methods comparison
+## Methods comparison
 A total of three methods are compared in this work: **CP**, modified SVD method based on re-sliced stacks (**SVD-RSS**) and the conventional SVD method based on flattened stacks (**SVD-FS**). SVD-FS was proposed in the following works:
 * [PVR](https://github.com/bkainz/fetalReconstruction) Kainz, Bernhard, et al. "Fast volume reconstruction from motion corrupted stacks of 2D slices."  IEEE Trans Med Imaging. 2015;34(9):1901-1913.
 * [NiftyMIC](https://github.com/gift-surg/NiftyMIC) Ebner, Michael, et al. "An automated framework for localization, segmentation and super-resolution reconstruction of fetal brain MRI." NeuroImage 206 (2020): 116324.
 
 <p align="center">
-   <img src="./doc/methods.png" align="center" width="700">
+   <img src="./Doc/methods.png" align="center" width="700">
 </p>
 <p align="center">Figure 2. Workflow of motion assessment methods. <p align="center">
 
