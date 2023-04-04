@@ -30,8 +30,8 @@ SVD-FS was proposed in the following works:
 <p align="center">Figure 2. Workflow of motion assessment methods. <p align="center">
 
 ## How to use
-This work is designed to assess the magnitude of motion of stacks in different directions for a same case, and to select the stack most appropriate as a reference in the subsequent registration. The usage of the different functions is as follows:
-* **main.py**: The main reference stack selection function, which takes a list of stacks as input(.nii format) and outputs the stack with minimum motion indicator as the reference.
+This work is designed to assess the magnitude of motion of stacks in different directions for one case, and to select the stack most appropriate as the reference in subsequent registration. The usage of different functions is as follows:
+* **main.py**: The main reference stack selection function, which takes a list of stacks as input(.nii format) and outputs the stack with the minimum motion indicator as the reference.
 * **sensitivity_test.py**: Used to evaluate the relative motion indicator (RMI, i.e. motion sensitivity) for different methods, corresponding to the linear motion experiment in the manuscript. This function takes two lists as input, one containing motion-free stacks (.nii format) and one containing motion-corrupted stacks (.nii format).
 * **motion_simulate.py**: Used to simulate **6-DoF rigid inter-slice** random and linear motion, takes an isotropic volume of fetal brain as input and outputs motion-corrupted stacks (.nii format) in three orientations (axi, cor, sag) and the corresponding transformation matrix (.npy format). Motion types (random/linear/motion-free) can be selected in this function.
 
