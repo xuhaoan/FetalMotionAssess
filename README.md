@@ -15,7 +15,12 @@ CP-based motion assessment (MA) is used for quantitative evaluation of motion in
 <p align="center">Figure 1. Illustration of motion assessment. <p align="center">
 
 ## Methods comparison
-A total of three methods are compared in this work: **CP**, modified SVD method based on re-sliced stacks (**SVD-RSS**) and the conventional SVD method based on flattened stacks (**SVD-FS**). SVD-FS was proposed in the following works:
+A total of three methods are compared in this work:
+* **CP**: proposed method based on 3D decomposition of input stack,
+* **SVD-RSS**: modified SVD method based on re-sliced stack,
+* **SVD-FS**: the conventional SVD method based on flattened stack.
+
+SVD-FS was proposed in the following works:
 * [PVR](https://github.com/bkainz/fetalReconstruction) Kainz, Bernhard, et al. "Fast volume reconstruction from motion corrupted stacks of 2D slices."  IEEE Trans Med Imaging. 2015;34(9):1901-1913.
 * [NiftyMIC](https://github.com/gift-surg/NiftyMIC) Ebner, Michael, et al. "An automated framework for localization, segmentation and super-resolution reconstruction of fetal brain MRI." NeuroImage 206 (2020): 116324.
 
@@ -24,9 +29,17 @@ A total of three methods are compared in this work: **CP**, modified SVD method 
 </p>
 <p align="center">Figure 2. Workflow of motion assessment methods. <p align="center">
 
+## How to use
+This work is designed to assess the magnitude of motion of stacks in different directions for a same case, and to select the stack most appropriate as a reference in the subsequent registration. The usage of the different functions is as follows:
+* **main.py**: The main reference stack selection function, which takes a list of stacks as input(.nii format) and outputs the stack with minimum motion indicator as the reference.
+* **sensitivity_test.py**: Used to evaluate the relative motion indicator (RMI, i.e. motion sensitivity) for different methods, corresponding to the linear motion experiment in the manuscript. This function takes two lists as input, one containing motion-free stacks (.nii format) and one containing motion-corrupted stacks (.nii format).
+* **motion_simulate.py**: Used to simulate **6-DoF rigid inter-slice** random and linear motion, takes an isotropic volume of fetal brain as input and outputs motion-corrupted stacks (.nii format) in three orientations (axi, cor, sag) and the corresponding transformation matrix (.npy format). Motion types (random/linear/motion-free) can be selected in this function.
+
 ## Setup
+Motion assessment:
 * SimpleITK 1.2.4
 * tensorly 0.5.1
-* **Further reconstruction:**
-* [NiftyMIC v0.9] (https://github.com/gift-surg/NiftyMIC)
-* [FMRIB Software Library v6.0] (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki)
+
+Further reconstruction:
+* [NiftyMIC](https://github.com/gift-surg/NiftyMIC)
+* [FMRIB Software Library v6.0](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki)
