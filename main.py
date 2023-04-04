@@ -13,7 +13,7 @@ from methods import CP, SVD_FS, SVD_RSS
 
 if __name__ == '__main__':
     method_type = 'CP'
-    path = './Data/RandomMotionStacks/'
+    path = 'data/random_motion_stacks/'
 
     orts = ['axi', 'cor', 'sag']
     names = os.listdir(path)

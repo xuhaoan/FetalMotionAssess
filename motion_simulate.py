@@ -8,15 +8,15 @@ This file is used to simulate linear and random motion.
 import os
 import numpy as np
 import SimpleITK as sitk
-from MotionSimulation.motion_simulator import interleaved_motion_simulation, linear_motion_simulation
-from MotionSimulation.motion_simulator import motion_free_simulation
-# from MotionSimulation.motion_generator import MotionGenerator
+from motion_simulation.motion_simulator import interleaved_motion_simulation, linear_motion_simulation
+from motion_simulation.motion_simulator import motion_free_simulation
+# from motion_simulation.motion_generator import MotionGenerator
 from util import save_data
 
 
 if __name__ == '__main__':
     motion_type = 'linear'
-    input_path = './Data/Volumes/'
+    input_path = 'data/volumes/'
 
     name_list = os.listdir(input_path)
     for name in name_list:
@@ -32,7 +32,7 @@ if __name__ == '__main__':
         orts = ['axi', 'cor', 'sag']
 
         if motion_type == 'random':
-            output_path = './Data/RandomMotionStacks/'
+            output_path = 'data/random_motion_stacks/'
             print('Simulating random motion')
             output_stack, output_transform, motion_free_index = interleaved_motion_simulation(nda, num_slice, st_ratio, orts)
 
@@ -47,7 +47,7 @@ if __name__ == '__main__':
             with open(output_path + name + '/motion_free_index_gt.txt', 'w') as f_gt:
                 f_gt.write(orts[motion_free_index] + '.nii.gz')
         elif motion_type == 'linear':
-            output_path = './Data/LinearMotionStacks/'
+            output_path = 'data/linear_motion_stacks/'
             displacement = 0.4
             rotation = 2
             print('Simulating linear motion with displacement of', displacement, 'and rotation of', rotation)
@@ -65,7 +65,7 @@ if __name__ == '__main__':
             np.save(output_path + motion_path + name + '/transform_gt.npy', output_transform)
             print('motion parameters save done!')
         elif motion_type == 'motion_free':
-            output_path = './Data/MotionFreeStacks/'
+            output_path = 'data/motion_free_stacks/'
             print('Simulating motion-free stacks with')
             output_stack, output_transform = motion_free_simulation(nda, num_slice, st_ratio, orts)
             if not os.path.isdir(output_path + name):

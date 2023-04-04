@@ -13,8 +13,8 @@ from methods import CP, SVD_FS, SVD_RSS
 
 if __name__ == '__main__':
     method_type = 'SVD_FS'
-    MC_path = './Data/LinearMotionStacks/D_0.4_R_2/'
-    MF_path = './Data/MotionFreeStacks/'
+    MC_path = 'data/linear_motion_stacks/D_0.4_R_2/'
+    MF_path = 'data/motion_free_stacks/'
 
     orts = ['axi', 'cor', 'sag']
     names = os.listdir(MC_path)

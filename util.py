@@ -152,7 +152,7 @@ def save_data(data, save_path, name,
               pixdim=[0.8, 0.8, 4.], verbose=False):
     """
     Save motion-corrupted stacks as .nii.gz
-    Data should be normalized from 0 to 1
+    data should be normalized from 0 to 1
 
     Arguments:
         - params [theta_x, theta_y, theta_z,
